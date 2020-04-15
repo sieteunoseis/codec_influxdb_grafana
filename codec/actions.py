@@ -5,8 +5,8 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-codec_username = 'admin'
-codec_password = 'Trucks08!'
+codec_username = 'XXXXXX'
+codec_password = 'XXXXXX'
 
 def get_status(host):
     url = 'https://{}/getxml?location=/Status/Standby'.format(host)
@@ -49,31 +49,6 @@ def get_people(host):
             return check["Current"]
     except:
         return None
-        
-#def get_call_status(host):
-#    <Status product="Cisco Codec" version="ce9.9.2.f2110f7eda7" apiVersion="4">
-#    <Call item="14" maxOccurrence="n">
-#    <AnswerState>Answered</AnswerState>
-#    <CallType>Video</CallType>
-#    <CallbackNumber>sip:+15037459997@freightliner.com</CallbackNumber>
-#    <DeviceType>Endpoint</DeviceType>
-#    <Direction>Outgoing</Direction>
-#    <DisplayName>Jeremy Worden</DisplayName>
-#    <Duration>3886</Duration>
-#    <Encryption>
-#    <Type>None</Type>
-#    </Encryption>
-#    <FacilityServiceId>0</FacilityServiceId>
-#    <HoldReason>None</HoldReason>
-#    <Ice>Disabled</Ice>
-#    <PlacedOnHold>False</PlacedOnHold>
-#    <Protocol>SIP</Protocol>
-#    <ReceiveCallRate>6000</ReceiveCallRate>
-#    <RemoteNumber>+15037459997@freightliner.com</RemoteNumber>
-#    <Status>Connected</Status>
-#    <TransmitCallRate>1500</TransmitCallRate>
-#    </Call>
-#    </Status>
 
 def get_loss(host):
     url = 'https://{}/getxml?location=/Status/MediaChannels'.format(host)
