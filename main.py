@@ -133,10 +133,10 @@ def check_status():
     # Run every 6 mins
     threading.Timer(360.0, check_status).start()
     headers = {
-            'X-Auth-Token': '984711fdc0f7c9d86aa38585db979373',
+            'X-Auth-Token': 'XXXXXXXXXXX',
             }
 
-    r = requests.get('http://170.2.96.200/api/v0/devices', headers=headers)
+    r = requests.get('http://XXXXXXXXXXXXX/api/v0/devices', headers=headers)
     librenms_devices = json.loads(r.text)
     
     # filter out by codec
@@ -156,7 +156,7 @@ def check_status():
             points.append(build_data_array(codec['hostname'],codec['location'], data,dUTC, ignore))
     
     try:
-        client = InfluxDBClient('170.2.96.200', 8086, '', '', 'codecs')
+        client = InfluxDBClient('XXXXXXXXXXX', 8086, '', '', 'codecs')
         client.write_points(points,batch_size=100000)    
     except Exception as e:
         print(e)
